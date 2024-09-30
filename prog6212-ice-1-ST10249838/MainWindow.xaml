@@ -1,0 +1,81 @@
+﻿<Window x:Class="ICE1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prog6212_ice_1_ST10249838"
+        mc:Ignorable="d"
+        Title="Inventory Management System" Height="500" Width="600">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Product ID -->
+        <TextBlock Text="Product ID:" VerticalAlignment="Center" Margin="5" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="ProductIDTextBox" Grid.Row="0" Grid.Column="1" Margin="5" Width="250"/>
+
+        <!-- Product Name -->
+        <TextBlock Text="Product Name:" VerticalAlignment="Center" Margin="5" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="ProductNameTextBox" Grid.Row="1" Grid.Column="1" Margin="5" Width="250"/>
+
+        <!-- Category -->
+        <TextBlock Text="Category:" VerticalAlignment="Center" Margin="5" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox x:Name="CategoryComboBox" Grid.Row="2" Grid.Column="1" Margin="5" Width="250"
+                  SelectionChanged="CategoryComboBox_SelectionChanged">
+            <ComboBoxItem Content="Electronics" />
+            <ComboBoxItem Content="Grocery" />
+            <ComboBoxItem Content="Clothing" />
+        </ComboBox>
+
+        <!-- Price -->
+        <TextBlock Text="Price:" VerticalAlignment="Center" Margin="5" Grid.Row="3" Grid.Column="0"/>
+        <TextBox x:Name="PriceTextBox" Grid.Row="3" Grid.Column="1" Margin="5" Width="250"/>
+
+        <!-- Stock Quantity -->
+        <TextBlock Text="Stock Quantity:" VerticalAlignment="Center" Margin="5" Grid.Row="4" Grid.Column="0"/>
+        <TextBox x:Name="StockQuantityTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Width="250"/>
+
+        <!-- Additional Details for Electronics -->
+        <TextBlock x:Name="WarrantyPeriodTextBlock" Text="Warranty Period (years):" VerticalAlignment="Center" Margin="5"
+                   Grid.Row="5" Grid.Column="0" Visibility="Collapsed"/>
+        <TextBox x:Name="WarrantyPeriodTextBox" Grid.Row="5" Grid.Column="1" Margin="5" Width="250" Visibility="Collapsed"/>
+
+        <!-- Additional Details for Grocery -->
+        <TextBlock x:Name="ExpirationDateTextBlock" Text="Expiration Date:" VerticalAlignment="Center" Margin="5"
+                   Grid.Row="6" Grid.Column="0" Visibility="Collapsed"/>
+        <DatePicker x:Name="ExpirationDatePicker" Grid.Row="6" Grid.Column="1" Margin="5" Width="250" Visibility="Collapsed"/>
+
+        <!-- Additional Details for Clothing -->
+        <TextBlock x:Name="SizeTextBlock" Text="Size:" VerticalAlignment="Center" Margin="5" Grid.Row="7" Grid.Column="0"
+                   Visibility="Collapsed"/>
+        <TextBox x:Name="SizeTextBox" Grid.Row="7" Grid.Column="1" Margin="5" Width="250" Visibility="Collapsed"/>
+
+        <TextBlock x:Name="MaterialTextBlock" Text="Material:" VerticalAlignment="Center" Margin="5"
+                   Grid.Row="8" Grid.Column="0" Visibility="Collapsed"/>
+        <TextBox x:Name="MaterialTextBox" Grid.Row="8" Grid.Column="1" Margin="5" Width="250" Visibility="Collapsed"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="AddProductButton" Content="Add Product" Width="100" Margin="5" Click="AddProductButton_Click"/>
+            <Button x:Name="UpdateProductButton" Content="Update Product" Width="100" Margin="5" Click="UpdateProductButton_Click"/>
+            <Button x:Name="ProcessSaleButton" Content="Process Sale" Width="100" Margin="5" Click="ProcessSaleButton_Click"/>
+            <Button x:Name="ViewReportButton" Content="View Inventory Report" Width="150" Margin="5" Click="ViewReportButton_Click"/>
+        </StackPanel>
+
+        <!-- Inventory Report Section -->
+        <ListBox x:Name="InventoryReportListBox" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Height="150" Margin="5,10,5,0"/>
+    </Grid>
+</Window>
